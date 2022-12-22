@@ -16,7 +16,7 @@ int main() {
         cin >> a >> b;
     } while (valFunzione(a) * valFunzione(b) >= 0);
     
-    float err = abs(((b - a) / 2));
+    float err = abs(((b - x) / 2));
 
     do {
         x = ((a + b) / 2);
