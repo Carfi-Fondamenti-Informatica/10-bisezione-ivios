@@ -1,37 +1,38 @@
 #include <iostream>
 #include <cmath>
-#include <iomanip>
-
 using namespace std;
 
-float valFunzione(float x) {
-    float funzione = (pow(x, 2) * cos(x)) + 1;
-    return funzione;
+float fn(float x) {
+    float risultato = 0;
+    risultato = (pow(x, 2) * cos(x)) + 1;
+    return risultato;
 }
 
 int main() {
-    float a, b, x;
+    float a = 0, b = 0, m = 0, err = 0;
     do {
-        cout << "inserire estremi";
-        cin >> a >> b;
-    } while (valFunzione(a) * valFunzione(b) >= 0);
-    
-    float err = abs(((b - x) / 2));
+        cout << "inserire estremi" << endl;
+        cin >> a;
+        cin >> b;
+    } while (fn(a) * fn(b) >= 0);
 
     do {
-        x = ((a + b) / 2);
-        if (valFunzione(x) == 0) {
-            cout << setprecision(5) << x;
-            cout << setprecision(5) << valFunzione(x);
+        m = (a + b) / 2;
+
+        if (fn(m) == 0) {
+            cout << m << endl;
+            cout << fn(m);
             break;
         } else {
-            if (valFunzione(a) * valFunzione(x) < 0) {
-                a = x;
+            if (fn(a) * fn(m) < 0) {
+                b = m;
             } else {
-                b = x;
+                a = m;
             }
+            err = abs((b - a) / 2);
         }
-    } while (err >= pow(1, -6));
+    } while (err >= 1e-6);
+    cout << int(m * 10000) / 10000.0 << endl;
 
     return 0;
 }
