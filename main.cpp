@@ -25,7 +25,7 @@ int main() {
             cout << setprecision(5) << valFunzione(x);
             break;
         } else {
-            if (valFunzione(a) * valFunzione(b) < 0) {
+            if (valFunzione(a) * valFunzione(x) < 0) {
                 a = x;
             } else {
                 b = x;
